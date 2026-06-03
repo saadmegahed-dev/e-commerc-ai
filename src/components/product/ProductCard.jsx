@@ -50,6 +50,7 @@ export default function ProductCard({ product }) {
         position: 'relative',
         overflow: 'hidden',
         bgcolor: 'background.paper',
+        borderRadius:"8px",
       }}
     >
       <Box

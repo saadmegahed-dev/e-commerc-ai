@@ -15,8 +15,7 @@ import ProductGrid from "../components/product/ProductGrid";
 import { useProducts } from "../hooks/useProducts";
 import { categories } from "../data/categories";
 
-export default function 
-ShopPage() {
+export default function ShopPage() {
   const { products, category } = useProducts();
   const [, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
@@ -41,7 +40,7 @@ ShopPage() {
   const activeCategory = categories.find((c) => c.id === category);
 
   return (
-    <Box sx={{ py: { xs: 6, md: 10,} }}>
+    <Box sx={{ py: { xs: 6, md: 10 } }}>
       <Container maxWidth="xl">
         <AnimatedSection sx={{ mb: 6 }}>
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
@@ -73,7 +72,7 @@ ShopPage() {
               onClick={() => handleCategoryFilter(null)}
               variant={!category ? "filled" : "outlined"}
               color={!category ? "primary" : "default"}
-              sx={{ borderRadius: 0 }}
+              sx={{ borderRadius: "8px" }}
             />
             {categories.map((cat) => (
               <Chip
@@ -82,7 +81,7 @@ ShopPage() {
                 onClick={() => handleCategoryFilter(cat.id)}
                 variant={category === cat.id ? "filled" : "outlined"}
                 color={category === cat.id ? "primary" : "default"}
-                sx={{ borderRadius: 0 }}
+                sx={{  borderRadius: "8px"  }}
               />
             ))}
           </Stack>
@@ -93,6 +92,12 @@ ShopPage() {
             sx={{ minWidth: { md: 280 } }}
           >
             <TextField
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "8px",
+                  backgroundColor: "background.paper",
+                },
+              }}
               fullWidth
               size="small"
               placeholder="Search..."

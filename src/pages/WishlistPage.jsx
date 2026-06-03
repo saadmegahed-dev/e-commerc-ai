@@ -29,7 +29,7 @@ export default function WishlistPage() {
             <Typography color="text.secondary" sx={{ mb: 4 }}>
               Save pieces you love by clicking the heart icon.
             </Typography>
-            <Button component={RouterLink} to="/shop" variant="contained">
+            <Button  component={RouterLink} to="/shop" variant="contained" sx={{borderRadius:"8px"}}>
               Explore Collection
             </Button>
           </AnimatedSection>

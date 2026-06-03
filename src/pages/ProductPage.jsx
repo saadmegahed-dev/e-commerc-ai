@@ -115,7 +115,7 @@ export default function ProductPage() {
                   variant="contained"
                   size="large"
                   onClick={() => add(product)}
-                  sx={{ flex: 1 }}
+                  sx={{ flex: 1, borderRadius: "8px"  }}
                 >
                   Add to Cart
                 </Button>
@@ -124,9 +124,10 @@ export default function ProductPage() {
                   sx={{
                     border: '1px solid',
                     borderColor: 'divider',
-                    borderRadius: 0,
+                    borderRadius: "8px",
                     width: 52,
                     height: 52,
+                    
                   }}
                 >
                   {inWishlist ? (

@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/e-commerc-projects/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -26,3 +27,4 @@ export default defineConfig({
     ],
   },
 });
+

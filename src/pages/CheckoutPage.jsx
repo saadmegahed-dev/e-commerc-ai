@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import {
   Box,
   Container,
@@ -10,22 +10,22 @@ import {
   Paper,
   Divider,
   Alert,
-} from '@mui/material';
-import AnimatedSection from '../components/common/AnimatedSection';
-import { useCart } from '../hooks/useCart';
-import { formatPrice } from '../data/products';
+} from "@mui/material";
+import AnimatedSection from "../components/common/AnimatedSection";
+import { useCart } from "../hooks/useCart";
+import { formatPrice } from "../data/products";
 
 export default function CheckoutPage() {
   const { items, total, clear } = useCart();
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    zip: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    zip: "",
   });
 
   const handleChange = (e) => {
@@ -36,12 +36,12 @@ export default function CheckoutPage() {
     e.preventDefault();
     setSubmitted(true);
     clear();
-    setTimeout(() => navigate('/'), 4000);
+    setTimeout(() => navigate("/"), 4000);
   };
 
   if (items.length === 0 && !submitted) {
     return (
-      <Container sx={{ py: 12, textAlign: 'center' }}>
+      <Container sx={{ py: 12, textAlign: "center" }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           Nothing to checkout
         </Typography>
@@ -54,12 +54,12 @@ export default function CheckoutPage() {
 
   if (submitted) {
     return (
-      <Container sx={{ py: 12, textAlign: 'center' }}>
+      <Container sx={{ py: 12, textAlign: "center" }}>
         <AnimatedSection>
-          <Alert severity="success" sx={{ mb: 4, justifyContent: 'center' }}>
+          <Alert severity="success" sx={{ mb: 4, justifyContent: "center" }}>
             Order placed successfully. Thank you for choosing AETHER.
           </Alert>
-          <Typography variant="h3" sx={{ mb: 2, fontSize: '1.8rem' }}>
+          <Typography variant="h3" sx={{ mb: 2, fontSize: "1.8rem" }}>
             Order Confirmed
           </Typography>
           <Typography color="text.secondary">
@@ -77,7 +77,10 @@ export default function CheckoutPage() {
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
             Secure Checkout
           </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.8rem' } }}>
+          <Typography
+            variant="h2"
+            sx={{ fontSize: { xs: "2rem", md: "2.8rem" } }}
+          >
             Complete Your Order
           </Typography>
         </AnimatedSection>
@@ -88,49 +91,141 @@ export default function CheckoutPage() {
               component="form"
               onSubmit={handleSubmit}
               elevation={0}
-              sx={{ p: { xs: 3, md: 4 }, border: '1px solid', borderColor: 'divider' }}
+              sx={{
+                p: { xs: 3, md: 4 },
+                border: "1px solid",
+                borderColor: "divider",
+                borderRadius: "8px",
+              }}
             >
-              <Typography variant="h6" sx={{ mb: 3, letterSpacing: '0.1em' }}>
+              <Typography variant="h6" sx={{ mb: 3, letterSpacing: "0.1em" }}>
                 Shipping Details
               </Typography>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label="First Name" name="firstName" required value={form.firstName} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="First Name"
+                    name="firstName"
+                    required
+                    value={form.firstName}
+                    onChange={handleChange}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label="Last Name" name="lastName" required value={form.lastName} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="Last Name"
+                    name="lastName"
+                    required
+                    value={form.lastName}
+                    onChange={handleChange}
+                  />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField fullWidth label="Email" name="email" type="email" required value={form.email} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="Email"
+                    name="email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                  />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField fullWidth label="Address" name="address" required value={form.address} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="Address"
+                    name="address"
+                    required
+                    value={form.address}
+                    onChange={handleChange}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label="City" name="city" required value={form.city} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="City"
+                    name="city"
+                    required
+                    value={form.city}
+                    onChange={handleChange}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label="ZIP Code" name="zip" required value={form.zip} onChange={handleChange} />
+                  <TextField
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "8px",
+                      },
+                    }}
+                    fullWidth
+                    label="ZIP Code"
+                    name="zip"
+                    required
+                    value={form.zip}
+                    onChange={handleChange}
+                  />
                 </Grid>
               </Grid>
-              <Button type="submit" variant="contained" size="large" fullWidth sx={{ mt: 4 }}>
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                fullWidth
+                sx={{ mt: 4, borderRadius: "8px" }}
+              >
                 Place Order — {formatPrice(total)}
               </Button>
             </Paper>
           </Grid>
 
           <Grid item xs={12} md={5}>
-            <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider' }}>
-              <Typography variant="h6" sx={{ mb: 3, letterSpacing: '0.1em' }}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "divider",
+                borderRadius: "8px",
+              }}
+            >
+              <Typography variant="h6" sx={{ mb: 3, letterSpacing: "0.1em" }}>
                 Order Summary
               </Typography>
               {items.map((item) => (
-                <Box key={item.id} sx={{ display: 'flex', gap: 2, mb: 2 }}>
+                <Box key={item.id} sx={{ display: "flex", gap: 2, mb: 2 }}>
                   <Box
                     component="img"
                     src={item.image}
                     alt={item.name}
-                    sx={{ width: 56, height: 68, objectFit: 'cover' }}
+                    sx={{ width: 56, height: 68, objectFit: "cover" }}
                   />
                   <Box sx={{ flex: 1 }}>
                     <Typography variant="body2">{item.name}</Typography>
@@ -144,7 +239,7 @@ export default function CheckoutPage() {
                 </Box>
               ))}
               <Divider sx={{ my: 2 }} />
-              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography>Total</Typography>
                 <Typography color="primary.main" variant="h6">
                   {formatPrice(total)}

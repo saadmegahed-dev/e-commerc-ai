@@ -24,6 +24,7 @@ export default function CategoriesSection() {
                   component={RouterLink}
                   to={`/shop?category=${cat.id}`}
                   sx={{
+                    borderRadius:"8px",
                     display: 'block',
                     color: 'inherit',
                     overflow: 'hidden',
